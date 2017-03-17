@@ -1,0 +1,6 @@
+#Go the the directory in which the Qt file has been created
+cd RecommenderSystem/login
+#To open login window
+pyuic4 mainwindow.ui -o login.py
+
+python login_UI_run.py
