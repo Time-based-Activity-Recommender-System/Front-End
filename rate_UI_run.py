@@ -8,12 +8,23 @@ class Rate(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self,parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-	
+	self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Rate')
+        self.center()
+        self.show()
+
+    def center(self):
+        frameGm = self.frameGeometry()
+        centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
+        frameGm.moveCenter(centerPoint)
+        self.move(frameGm.topLeft())
 
 def main():
     app=QtGui.QApplication(sys.argv) 
     ui = Rate() 
-    ui.show()
+    #ui.show()
     sys.exit(app.exec_())
 
 
