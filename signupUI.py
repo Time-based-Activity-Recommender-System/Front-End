@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Mar 18 00:08:58 2017
+# Created: Sat Mar 18 17:42:04 2017
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -640,6 +640,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         self.password_lineEdit.setPalette(palette)
         self.password_lineEdit.setAutoFillBackground(True)
+        self.password_lineEdit.setEchoMode(QtGui.QLineEdit.PasswordEchoOnEdit)
         self.password_lineEdit.setObjectName(_fromUtf8("password_lineEdit"))
         self.email_lineEdit = QtGui.QLineEdit(self.centralWidget)
         self.email_lineEdit.setGeometry(QtCore.QRect(220, 130, 231, 21))
