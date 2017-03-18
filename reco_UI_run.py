@@ -3,8 +3,6 @@ from recoUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
-from login_UI_run import Login
-
 
 class FrontPage(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -38,7 +36,7 @@ class FrontPage(QtGui.QMainWindow):
 def main():
     app=QtGui.QApplication(sys.argv) 
     ui = FrontPage() 
-    ui.show()
+    #ui.show()
     sys.exit(app.exec_())
 
 

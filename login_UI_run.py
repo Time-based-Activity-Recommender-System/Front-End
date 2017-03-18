@@ -10,6 +10,7 @@ class Login(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.initUI()
+        self.ui.signup_pushButton.clicked.connect(self.signUpFunc)
 
     def initUI(self):
         self.setWindowTitle('Login')

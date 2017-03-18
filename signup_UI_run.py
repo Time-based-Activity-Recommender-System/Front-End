@@ -32,7 +32,7 @@ class SignUp(QtGui.QMainWindow):
 def main():
     app=QtGui.QApplication(sys.argv) 
     ui = SignUp() 
-    ui.show()
+    #ui.show()
     sys.exit(app.exec_())
 
 
