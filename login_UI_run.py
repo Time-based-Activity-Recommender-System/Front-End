@@ -3,6 +3,7 @@
 from loginUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
+import os
 
 class Login(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -22,6 +23,10 @@ class Login(QtGui.QMainWindow):
         centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
         frameGm.moveCenter(centerPoint)
         self.move(frameGm.topLeft())
+
+    def signUpFunc(self):
+        self.hide()
+        os.system('python signup_UI_run.py')
 
 def main():
     app=QtGui.QApplication(sys.argv) 
