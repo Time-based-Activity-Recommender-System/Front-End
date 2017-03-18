@@ -13,7 +13,7 @@ class SignUp(QtGui.QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Login')
+        self.setWindowTitle('SignUp')
         self.center()
         self.show()
 

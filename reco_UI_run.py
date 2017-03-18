@@ -16,7 +16,7 @@ class FrontPage(QtGui.QMainWindow):
         self.ui.signupButton.clicked.connect(self.signUpFunc)
 
     def initUI(self):
-        self.setWindowTitle('Login')
+        self.setWindowTitle('Recommender System')
         self.center()
         self.show()
 
