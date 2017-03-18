@@ -8,8 +8,21 @@ class SignUp(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self,parent)
         self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
+        self.ui.setupUi(self)      
         self.credentials()
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Login')
+        self.center()
+        self.show()
+
+    def center(self):
+        frameGm = self.frameGeometry()
+        centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
+        frameGm.moveCenter(centerPoint)
+        self.move(frameGm.topLeft())
+
 
     def credentials(self): 
         self.name = self.ui.name_lineEdit

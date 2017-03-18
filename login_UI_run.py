@@ -9,11 +9,23 @@ class Login(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self,parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Login')
+        self.center()
+        self.show()
+
+    def center(self):
+        frameGm = self.frameGeometry()
+        centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
+        frameGm.moveCenter(centerPoint)
+        self.move(frameGm.topLeft())
 
 def main():
     app=QtGui.QApplication(sys.argv) 
     ui = Login() 
-    ui.show()
+    #ui.show()
     sys.exit(app.exec_())
 
 
