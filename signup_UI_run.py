@@ -15,7 +15,7 @@ class SignUp(QtGui.QMainWindow):
         self.ui.signup_button.clicked.connect(self.rateFunc)
 
     def initUI(self):
-        self.setWindowTitle('SignUp')
+        self.setWindowTitle('Sign Up')
         self.center()
         self.show()
 

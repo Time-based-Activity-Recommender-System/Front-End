@@ -14,7 +14,7 @@ class MovieRatings(QtGui.QMainWindow):
         self.connections()
         
     def initUI(self):
-        self.setWindowTitle('Login')
+        self.setWindowTitle('Movie Ratings')
         self.center()
         self.show()
 

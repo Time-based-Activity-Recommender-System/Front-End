@@ -14,7 +14,7 @@ class MusicRatings(QtGui.QMainWindow):
         self.connections()
 
     def initUI(self):
-        self.setWindowTitle('Login')
+        self.setWindowTitle('Music Ratings')
         self.center()
         self.show()
 

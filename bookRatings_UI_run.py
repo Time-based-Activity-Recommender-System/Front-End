@@ -14,7 +14,7 @@ class BookRatings(QtGui.QMainWindow):
         self.connections()
         
     def initUI(self):
-        self.setWindowTitle('Login')
+        self.setWindowTitle('Book Ratings')
         self.center()
         self.show()
 
