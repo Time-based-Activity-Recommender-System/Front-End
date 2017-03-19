@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sun Mar 19 14:59:55 2017
+# Created: Sun Mar 19 15:44:10 2017
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -168,7 +168,7 @@ class Ui_MainWindow(object):
         self.centralWidget = QtGui.QWidget(MainWindow)
         self.centralWidget.setObjectName(_fromUtf8("centralWidget"))
         self.label = QtGui.QLabel(self.centralWidget)
-        self.label.setGeometry(QtCore.QRect(300, 60, 581, 61))
+        self.label.setGeometry(QtCore.QRect(410, 80, 581, 61))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setBold(True)
@@ -355,6 +355,9 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_19.setFont(font)
         self.label_19.setObjectName(_fromUtf8("label_19"))
+        self.pushButton = QtGui.QPushButton(self.centralWidget)
+        self.pushButton.setGeometry(QtCore.QRect(40, 10, 71, 51))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtGui.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 1308, 25))
@@ -391,4 +394,5 @@ class Ui_MainWindow(object):
         self.label_17.setText(_translate("MainWindow", "4", None))
         self.label_18.setText(_translate("MainWindow", "2", None))
         self.label_19.setText(_translate("MainWindow", "3", None))
+        self.pushButton.setText(_translate("MainWindow", "Home", None))
 

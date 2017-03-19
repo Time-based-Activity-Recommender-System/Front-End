@@ -2,6 +2,7 @@
 from finalPage1UI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
+import os
 
 class FinalPage1(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -9,6 +10,7 @@ class FinalPage1(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.initUI()
+        self.ui.pushButton_2.clicked.connect(self.home)
 
     def initUI(self):
         self.setWindowTitle('Recommendations')
@@ -20,6 +22,10 @@ class FinalPage1(QtGui.QMainWindow):
         centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
         frameGm.moveCenter(centerPoint)
         self.move(frameGm.topLeft())
+
+    def home(self):
+        self.hide()
+        os.system('python entertime_UI_run.py')
 
 def main():
     app=QtGui.QApplication(sys.argv) 

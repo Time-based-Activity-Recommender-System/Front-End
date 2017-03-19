@@ -25,7 +25,7 @@ class Entertime(QtGui.QMainWindow):
 
     def timeAlgo(self):
         self.hr = self.ui.hrs_spinBox.value()
-        self.min = self.mins_spinBox_2.value()
+        self.min = self.ui.mins_spinBox_2.value()
         if(self.hr == 0 and self.min < 15): #song(1 or 2)
             self.hide()
             os.system('python finalPage1_UI_run.py')  

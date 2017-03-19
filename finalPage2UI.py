@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sun Mar 19 14:59:50 2017
+# Created: Sun Mar 19 15:43:38 2017
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -298,6 +298,9 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_13.setFont(font)
         self.label_13.setObjectName(_fromUtf8("label_13"))
+        self.pushButton = QtGui.QPushButton(self.centralWidget)
+        self.pushButton.setGeometry(QtCore.QRect(50, 10, 71, 51))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtGui.QMenuBar(MainWindow)
         self.menuBar.setGeometry(QtCore.QRect(0, 0, 1127, 25))
@@ -328,4 +331,5 @@ class Ui_MainWindow(object):
         self.label_11.setText(_translate("MainWindow", "4", None))
         self.label_12.setText(_translate("MainWindow", "2", None))
         self.label_13.setText(_translate("MainWindow", "3", None))
+        self.pushButton.setText(_translate("MainWindow", "Home", None))
 
