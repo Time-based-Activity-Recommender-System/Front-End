@@ -1,4 +1,4 @@
-from bookRatings import Ui_MainWindow
+from bookRatingsUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
