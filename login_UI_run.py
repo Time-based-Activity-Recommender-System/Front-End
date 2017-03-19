@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 from loginUI import Ui_MainWindow
 import sys
@@ -12,6 +11,7 @@ class Login(QtGui.QMainWindow):
         self.ui.setupUi(self)
         self.initUI()
         self.ui.signup_pushButton.clicked.connect(self.signUpFunc)
+	self.ui.login_pushButton.clicked.connect(self.loginFunc)
 
     def initUI(self):
         self.setWindowTitle('Login')
@@ -26,7 +26,11 @@ class Login(QtGui.QMainWindow):
 
     def signUpFunc(self):
         self.hide()
-        os.system('python signup_UI_run.py')
+        os.system('python signup_UI_run.py')    
+   
+    def loginFunc(self):
+        self.hide()
+        os.system('python entertime_UI_run.py')
 
 def main():
     app=QtGui.QApplication(sys.argv) 
