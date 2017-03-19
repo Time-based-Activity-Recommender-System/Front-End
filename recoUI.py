@@ -206,7 +206,7 @@ class Ui_MainWindow(object):
 "}"))
         self.movie_button.setText(_fromUtf8(""))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("/home/sazzy_techgirl/Documents/PD_LAB_II/images/movie_main_ui.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../images/movie_main_ui.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.movie_button.setIcon(icon)
         self.movie_button.setIconSize(QtCore.QSize(2000, 2000))
         self.movie_button.setObjectName(_fromUtf8("movie_button"))
