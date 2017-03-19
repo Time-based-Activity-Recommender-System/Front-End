@@ -1,4 +1,4 @@
-from movieRatings import Ui_MainWindow
+from movieRatingsUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
