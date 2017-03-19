@@ -1,4 +1,4 @@
-from musicRatings import Ui_MainWindow
+from musicRatingsUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
