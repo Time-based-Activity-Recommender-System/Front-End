@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Mar 18 05:06:16 2017
+# Created: Mon Mar 20 08:23:10 2017
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -168,7 +168,7 @@ class Ui_MainWindow(object):
         self.centralWidget = QtGui.QWidget(MainWindow)
         self.centralWidget.setObjectName(_fromUtf8("centralWidget"))
         self.label = QtGui.QLabel(self.centralWidget)
-        self.label.setGeometry(QtCore.QRect(260, 20, 191, 17))
+        self.label.setGeometry(QtCore.QRect(170, 20, 341, 20))
         self.label.setAutoFillBackground(True)
         self.label.setObjectName(_fromUtf8("label"))
         self.book_pushButton_2 = QtGui.QPushButton(self.centralWidget)
@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.label.setText(_translate("MainWindow", "Choose category to rate: ", None))
+        self.label.setText(_translate("MainWindow", "Please click on each of the images below to rate:", None))
         self.label_2.setText(_translate("MainWindow", "Movie", None))
         self.label_3.setText(_translate("MainWindow", "Books", None))
         self.label_4.setText(_translate("MainWindow", "Music", None))
