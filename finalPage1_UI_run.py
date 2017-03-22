@@ -11,6 +11,7 @@ class FinalPage1(QtGui.QMainWindow):
         self.ui.setupUi(self)
         self.initUI()
         self.ui.pushButton_2.clicked.connect(self.home)
+        self.ui.pushButton.clicked.connect(self.logout)
 
     def initUI(self):
         self.setWindowTitle('Recommendations')
@@ -26,6 +27,10 @@ class FinalPage1(QtGui.QMainWindow):
     def home(self):
         self.hide()
         os.system('python entertime_UI_run.py')
+
+    def logout(self):
+        self.hide()
+        os.system('python reco_UI_run.py')
 
 def main():
     app=QtGui.QApplication(sys.argv) 
