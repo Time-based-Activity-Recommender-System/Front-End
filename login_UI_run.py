@@ -3,6 +3,7 @@ from loginUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
+import pandas as pd
 
 class Login(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -11,7 +12,26 @@ class Login(QtGui.QMainWindow):
         self.ui.setupUi(self)
         self.initUI()
         self.ui.signup_pushButton.clicked.connect(self.signUpFunc)
-	self.ui.login_pushButton.clicked.connect(self.loginFunc)
+	self.ui.login_pushButton.clicked.connect(self.newfunc)
+
+    def newfunc(self):
+	self.username = ""
+	self.password = ""
+	self.username = self.ui.username_lineEdit.text()
+	self.password = self.ui.password_lineEdit.text()
+
+	self.u_cols = ['password', 'username']
+	self.check = pd.read_csv('passwords.data', sep='\t', names=self.u_cols, encoding='latin-1')
+	
+	flag = 0
+	for i in range(len(self.check)):
+	    if(self.check['username'][i]==self.username and self.check['password'][i]==self.password):
+		flag = 1
+		self.hide()
+		os.system('python entertime_UI_run.py')   
+	
+	if(flag==0):
+		QtGui.QMessageBox.critical(self,'Error!','Wrong User ID and password!')
 
     def initUI(self):
         self.setWindowTitle('Login')
@@ -31,6 +51,10 @@ class Login(QtGui.QMainWindow):
     def loginFunc(self):
         self.hide()
         os.system('python entertime_UI_run.py')
+
+    def tryAgain(self):
+	self.hide()
+        os.system('python tryAgain_UI_run.py')    
 
 def main():
     app=QtGui.QApplication(sys.argv) 
