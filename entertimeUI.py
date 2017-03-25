@@ -470,7 +470,7 @@ class Ui_MainWindow(object):
         self.hrs_spinBox.setPalette(palette)
         self.hrs_spinBox.setAutoFillBackground(True)
         self.hrs_spinBox.setMaximum(59)
-        self.hrs_spinBox.setDisplayIntegerBase(10)
+        #self.hrs_spinBox.setDisplayIntegerBase(10)
         self.hrs_spinBox.setObjectName(_fromUtf8("hrs_spinBox"))
         self.mins_spinBox_2 = QtGui.QSpinBox(self.centralWidget)
         self.mins_spinBox_2.setGeometry(QtCore.QRect(400, 290, 48, 27))
