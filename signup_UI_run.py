@@ -42,7 +42,7 @@ class SignUp(QtGui.QMainWindow):
             self.userID=""
             self.userID=self.ui.userID_lineEdit.text() 
             self.password=""
-            self.password = self.ui.password_lineEdit.text() #TODO: why empty???????????????
+            self.password = self.ui.password_lineEdit.text() 
             flag = 0
             print "length=",len(passwords_data) 
             for i in range(0,len(passwords_data)):
