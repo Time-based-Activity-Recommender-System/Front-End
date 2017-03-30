@@ -36,7 +36,7 @@ class SignUp(QtGui.QMainWindow):
         if(self.ui.userID_lineEdit.text() == "" or self.ui.password_lineEdit.text() == ""):
             QtGui.QMessageBox.critical(self,'Error!','UserID and Password is mandatory')
         else:
-            p_cols = ['user_id', 'Password']
+            p_cols = ['1user_id', '2Password', '3user_id']
             passwords_data = pd.read_csv('passwords.data', sep='\t', names=p_cols, encoding='latin-1')
             print passwords_data.tail()
             self.userID=""
@@ -47,13 +47,27 @@ class SignUp(QtGui.QMainWindow):
             print "length=",len(passwords_data) 
             for i in range(0,len(passwords_data)):
                 print "length=",len(passwords_data)
-                if(passwords_data['user_id'][i] == self.userID):
+                if(passwords_data['1user_id'][i] == self.userID):
                     flag = 1
                     QtGui.QMessageBox.critical(self,'Error!','UserID already exists')
             if(flag == 0):
-                d = {'user_id': [self.userID], 'Password':[self.password]}
-                df = pd.DataFrame(d)
-                df.to_csv('passwords.data',mode='a' ,sep='\t',index=False, header=False) 
+		whatevercols = ['whatever']
+		userid = pd.read_csv('temp.data', sep='\t', names=whatevercols, encoding='latin-1')
+		self.temp_userid = userid['whatever'][0]
+                d = {'1user_id': [self.userID], '2Password':[self.password], '3user_id':[self.temp_userid]}
+		df = pd.DataFrame(d)
+		df.to_csv('passwords.data',mode='a' ,sep='\t',index=False, header=False)
+
+		self.temp_userid = self.temp_userid + 1
+		new = {'whatever':[self.temp_userid]}
+		newdf = pd.DataFrame(new)
+		newdf.to_csv('temp.data',sep='\t',index=False, header=False)
+
+		whatevercols1 = ['whatever1']
+		newno = {'whatever1':[self.userID]}
+		newdf = pd.DataFrame(newno)
+                newdf.to_csv('session.data' ,sep='\t',index=False, header=False)
+                 
                 self.hide()
                 os.system('python rate_UI_run.py')
         
