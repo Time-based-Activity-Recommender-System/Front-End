@@ -20,13 +20,19 @@ class Login(QtGui.QMainWindow):
 	self.username = self.ui.username_lineEdit.text()
 	self.password = self.ui.password_lineEdit.text()
 
-	self.u_cols = ['password', 'username']
+	self.u_cols = ['1username', '2password', '3user_id']
 	self.check = pd.read_csv('passwords.data', sep='\t', names=self.u_cols, encoding='latin-1')
 	
 	flag = 0
 	for i in range(len(self.check)):
-	    if(self.check['username'][i]==self.username and self.check['password'][i]==self.password):
+	    if(self.check['1username'][i]==self.username and self.check['2password'][i]==self.password):
 		flag = 1
+
+		whatevercols1 = ['whatever1']
+		newno = {'whatever1':[self.username]}
+		newdf = pd.DataFrame(newno)
+                newdf.to_csv('session.data' ,sep='\t',index=False, header=False)
+                 
 		self.hide()
 		os.system('python entertime_UI_run.py')   
 	
