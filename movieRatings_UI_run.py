@@ -144,7 +144,6 @@ class MovieRatings(QtGui.QMainWindow):
         global num_movies
         self.newuser_ratings = np.zeros((num_movies, 1))
         self.newuser_ratings[0] = int(self.ui.horizontalSlider_1.value())
-        self.newuser_ratings[97] = int(self.ui.horizontalSlider_10.value())
         self.newuser_ratings[49] = int(self.ui.horizontalSlider_2.value())
         self.newuser_ratings[70] = int(self.ui.horizontalSlider_3.value())   
         self.newuser_ratings[63] = int(self.ui.horizontalSlider_4.value())
@@ -203,7 +202,7 @@ class MovieRatings(QtGui.QMainWindow):
             #print items['movie title'][ind2]
             d = { 'movie_title': [ items['movie title'][ind2] ] }
             df = pd.DataFrame(d)
-            df.to_csv('ml-100k/movie_reco.data',mode='a' ,sep='\t',index=False, header=False)
+            df.to_csv('movie_reco.data',mode='a' ,sep='\t',index=False, header=False)
             
     def normalize_ratings(self):
         global num_movies
@@ -263,4 +262,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()
