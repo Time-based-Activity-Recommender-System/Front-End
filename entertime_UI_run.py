@@ -3,6 +3,8 @@ from entertimeUI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
+import pandas as pd 
+import numpy as np
 
 class Entertime(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -25,42 +27,59 @@ class Entertime(QtGui.QMainWindow):
         self.move(frameGm.topLeft())
 
     def disp_pop(self):
-	import numpy as np
-	import pandas as pd
+        #display popular movies
+        pop_cols = ['movie_id', 'movie_title']
+        pop_movies = pd.read_csv('popular_movies.data', sep='\t', names=pop_cols, encoding='latin-1')
+        l = len(pop_movies) 
+        #print "Length = ", l
+        ind1 = np.random.randint(0, l)
+        ind2 = np.random.randint(0, l)
+        ind3 = np.random.randint(0, l)
+        
+        while(ind1 == ind2):
+            ind2 = np.random.randint(0, l)
+        while(ind1 == ind3 and ind2 == ind3):
+            ind3 = np.random.randint(0, l)
+        
+        self.ui.tableWidget.setItem(0, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind1]))
+        self.ui.tableWidget.setItem(1, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind2]))
+        self.ui.tableWidget.setItem(2, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind3]));
+        
+        #display popular songs
+        pop_cols = ['song_id', 'song_title']
+        pop_songs = pd.read_csv('popular_songs.data', sep='\t', names=pop_cols, encoding='latin-1')
+        l = len(pop_songs) 
+        #print "Length = ", l
+        ind1 = np.random.randint(0, l)
+        ind2 = np.random.randint(0, l)
+        ind3 = np.random.randint(0, l)
 
-	pop_cols = ['movie_id', 'movie_title']
-	pop_movies = pd.read_csv('ml-100k/popular.data', sep='\t', names=pop_cols, encoding='latin-1')
-	l = len(pop_movies) 
-	#print "Length = ", l
-	ind1 = np.random.randint(0, l)
-	ind2 = np.random.randint(0, l)
-	ind3 = np.random.randint(0, l)
+        while(ind1 == ind2):
+            ind2 = np.random.randint(0, l)
+        while(ind1 == ind3 and ind2 == ind3):
+            ind3 = np.random.randint(0, l)
+
+        self.ui.tableWidget.setItem(0, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind1]))
+        self.ui.tableWidget.setItem(1, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind2]))
+        self.ui.tableWidget.setItem(2, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind3]))
 
 
-	while(ind1 == ind2):
-		ind2 = np.random.randint(0, l)
-	while(ind1 == ind3 and ind2 == ind3):
-		ind3 = np.random.randint(0, l)
+        #print pop_movies['movie_title'][ind1]
+	    #print pop_movies['movie_title'][ind2]
+	    #print pop_movies['movie_title'][ind3]
 
-	self.ui.tableWidget.setItem(0, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind1]));
-	self.ui.tableWidget.setItem(1, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind2]));
-	self.ui.tableWidget.setItem(2, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind3]));
-	#print pop_movies['movie_title'][ind1]
-	#print pop_movies['movie_title'][ind2]
-	#print pop_movies['movie_title'][ind3]
+        # ratings = np.zeros((num_movies, num_users+1), dtype = np.float)
+        # for i in range(len(ratings)):
+        # 	row = ratings_data['2movie_id'][i]-1
+        # 	col = ratings_data['1user_id'][i]-1
+        # 	ratings[row][col]=ratings_data['3rating'][i]
 
-# ratings = np.zeros((num_movies, num_users+1), dtype = np.float)
-# for i in range(len(ratings)):
-# 	row = ratings_data['2movie_id'][i]-1
-# 	col = ratings_data['1user_id'][i]-1
-# 	ratings[row][col]=ratings_data['3rating'][i]
+        # avg_ratings = ratings.sum(0)/(ratings != 0).sum(0)
 
-# avg_ratings = ratings.sum(0)/(ratings != 0).sum(0)
-
-# print avg_ratings
-# ind = np.argpartition(avg_ratings, -4)[-4:]
-# ind2 = ratings_data['2movie_id'][ind]
-# print items['movie title'][ind2]
+        # print avg_ratings
+        # ind = np.argpartition(avg_ratings, -4)[-4:]
+        # ind2 = ratings_data['2movie_id'][ind]
+        # print items['movie title'][ind2]
 
     def input_time(self):
         self.hr = self.ui.hrs_spinBox.value()
