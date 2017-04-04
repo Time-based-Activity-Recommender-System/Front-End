@@ -197,7 +197,14 @@ class MovieRatings(QtGui.QMainWindow):
         'Film-Noir', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
         items = pd.read_csv('ml-100k/u.item', sep='|', names=i_cols,encoding='latin-1')
         ind = np.argpartition(predictions_for_newuser, -1)[-5:]
-        for i in range(len(ind)):
+        
+        ind2 = self.ratings_data['2movie_id'][0]
+        #print items['movie title'][ind2]
+        d = { 'movie_title': [ items['movie title'][ind2] ] }
+        df = pd.DataFrame(d)
+        df.to_csv('movie_reco.data' ,sep='\t',index=False, header=False)      
+
+        for i in range(1,len(ind)):
             ind2 = self.ratings_data['2movie_id'][i]
             #print items['movie title'][ind2]
             d = { 'movie_title': [ items['movie title'][ind2] ] }
