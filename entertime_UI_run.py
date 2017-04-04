@@ -11,8 +11,8 @@ class Entertime(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self,parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-	self.initUI()
-	self.disp_pop()
+        self.initUI()
+        self.disp_pop()
         self.ui.enter_pushButton.clicked.connect(self.input_time)	
 
     def initUI(self):
@@ -43,7 +43,7 @@ class Entertime(QtGui.QMainWindow):
         
         self.ui.tableWidget.setItem(0, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind1]))
         self.ui.tableWidget.setItem(1, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind2]))
-        self.ui.tableWidget.setItem(2, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind3]));
+        self.ui.tableWidget.setItem(2, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind3]))
         
         #display popular songs
         pop_cols = ['song_id', 'song_title']

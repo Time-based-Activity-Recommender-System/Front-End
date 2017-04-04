@@ -191,8 +191,15 @@ class MusicRatings(QtGui.QMainWindow):
         
         i_cols = ['song id', 'song title']
         items = pd.read_csv('music-dataset/song-titles.txt', sep='\t', names=i_cols)
-        ind = np.argpartition(predictions_for_newuser, -1)[-10:]
-        for i in range(len(ind)):
+        ind = np.argpartition(predictions_for_newuser, -1)[-15:]
+      
+        ind2 = self.ratings_data['2song_id'][0]
+        #print items['song title'][ind2]
+        d = { 'song_title': [ items['song title'][ind2] ] }
+        df = pd.DataFrame(d)
+        df.to_csv('song_reco.data',sep='\t',index=False, header=False)
+      
+        for i in range(1,len(ind)):
             ind2 = self.ratings_data['2song_id'][i]
             #print items['song title'][ind2]
             d = { 'song_title': [ items['song title'][ind2] ] }
