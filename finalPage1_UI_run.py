@@ -37,6 +37,10 @@ class FinalPage1(QtGui.QMainWindow):
             for i in range(0,5):
                 self.ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(reco_songs['song_title'][k]))
                 k = k + 1
+                if(k == 15):
+                    break
+            if(k == 15):
+                break
         
     def home(self):
         self.hide()

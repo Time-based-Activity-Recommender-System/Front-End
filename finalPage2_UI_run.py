@@ -3,6 +3,7 @@ from finalPage2UI import Ui_MainWindow
 import sys
 from PyQt4 import QtGui,QtCore
 import os
+import pandas as pd
 
 class FinalPage2(QtGui.QMainWindow):
     def __init__(self, parent=None):
@@ -10,6 +11,7 @@ class FinalPage2(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.initUI()
+        self.reco()
         self.ui.pushButton.clicked.connect(self.home)
         self.ui.pushButton_2.clicked.connect(self.logout)
 
@@ -23,6 +25,26 @@ class FinalPage2(QtGui.QMainWindow):
         centerPoint = QtGui.QDesktopWidget().availableGeometry().center()
         frameGm.moveCenter(centerPoint)
         self.move(frameGm.topLeft())
+    
+    def reco(self):
+        #recommend songs
+        reco_cols = ['song_title']
+        reco_songs = pd.read_csv('song_reco.data', sep='\t', names=reco_cols, encoding='latin-1')
+        print reco_songs['song_title'][0]
+        #TODO: DONT DISPLAY ALL 15 ALWAYS. LOOK AT TIME
+        
+        k=0
+        for j in range(0,5):
+            for i in range(0,5):
+                self.ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(reco_songs['song_title'][k]))
+                k = k + 1
+                if(k == 15):
+                    break
+            if(k == 15):
+                break
+
+        #recommend books 
+        #TODO
 
     def home(self):
         self.hide()
