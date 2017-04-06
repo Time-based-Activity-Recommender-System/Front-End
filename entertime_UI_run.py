@@ -62,6 +62,25 @@ class Entertime(QtGui.QMainWindow):
         self.ui.tableWidget.setItem(0, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind1]))
         self.ui.tableWidget.setItem(1, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind2]))
         self.ui.tableWidget.setItem(2, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind3]))
+	
+	#display popular books
+	pop_cols = ['book_id', 'book_title']
+	pop_books = pd.read_csv('popular_books.data', sep=';', names=pop_cols, encoding='latin-1')
+	l = len(pop_movies) 
+	#print "Length = ", l
+	ind1 = np.random.randint(0, l)
+	ind2 = np.random.randint(0, l)
+	ind3 = np.random.randint(0, l)
+
+
+	while(ind1 == ind2):
+	    ind2 = np.random.randint(0, l)
+	while(ind1 == ind3 and ind2 == ind3):
+	    ind3 = np.random.randint(0, l)
+
+	self.ui.tableWidget.setItem(0, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind1]))
+	self.ui.tableWidget.setItem(1, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind2]))
+	self.ui.tableWidget.setItem(2, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind3]))
 
 
         #print pop_movies['movie_title'][ind1]
