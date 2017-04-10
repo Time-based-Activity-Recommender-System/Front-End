@@ -29,18 +29,25 @@ class FinalPage1(QtGui.QMainWindow):
     def reco(self):
         reco_cols = ['song_title']
         reco_songs = pd.read_csv('song_reco.data', sep='\t', names=reco_cols, encoding='latin-1')
-        print reco_songs['song_title'][0]
         #TODO: DONT DISPLAY ALL 15 ALWAYS. LOOK AT TIME
+
+        cols = ['hour', 'minute']
+        time = pd.read_csv('time.txt', sep='\t', names=cols, encoding='latin-1')
+        minute = time['minute'][0]        
+        
+        maxCol = 0
+        if(minute <= 5):
+            maxCol = 1;
+        elif(minute <= 10):
+            maxCol = 2;
+        else:
+            maxCol = 3;
         
         k=0
-        for j in range(0,5):
+        for j in range(0,maxCol):
             for i in range(0,5):
                 self.ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(reco_songs['song_title'][k]))
                 k = k + 1
-                if(k == 15):
-                    break
-            if(k == 15):
-                break
         
     def home(self):
         self.hide()
