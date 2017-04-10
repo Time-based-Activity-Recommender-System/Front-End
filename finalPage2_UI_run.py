@@ -28,8 +28,10 @@ class FinalPage2(QtGui.QMainWindow):
     
     def reco(self):
         #recommend songs
-        reco_cols = ['song_title']
-        reco_songs = pd.read_csv('song_reco.data', sep='\t', names=reco_cols, encoding='latin-1')
+        reco_scols = ['song_title']
+	reco_bcols = ['book_title']
+        reco_songs = pd.read_csv('song_reco.data', sep='\t', names=reco_scols, encoding='latin-1')
+	reco_books = pd.read_csv('book_reco.data', sep='\t', names=reco_bcols, encoding='latin-1')
         print reco_songs['song_title'][0]
         #TODO: DONT DISPLAY ALL 15 ALWAYS. LOOK AT TIME
         
@@ -37,6 +39,7 @@ class FinalPage2(QtGui.QMainWindow):
         for j in range(0,5):
             for i in range(0,5):
                 self.ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(reco_songs['song_title'][k]))
+		#self.ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(reco_books['book_title'][k]))
                 k = k + 1
                 if(k == 15):
                     break
@@ -45,6 +48,16 @@ class FinalPage2(QtGui.QMainWindow):
 
         #recommend books 
         #TODO
+	k=0
+        for i in range(0,5):
+            self.ui.tableWidget_2.setItem(i, 0, QtGui.QTableWidgetItem(reco_books['book_title'][k+1]))
+            k = k + 1
+            
+
+	for i in range(0,5):
+            self.ui.tableWidget_2.setItem(i, 1, QtGui.QTableWidgetItem(reco_books['book_title'][k+1]))
+            k = k + 1
+            
 
     def home(self):
         self.hide()
