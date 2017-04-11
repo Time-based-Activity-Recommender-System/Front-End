@@ -6,7 +6,6 @@ import os
 import pandas as pd 
 import numpy as np
 
-
 class Entertime(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self,parent)
@@ -39,7 +38,7 @@ class Entertime(QtGui.QMainWindow):
         
         while(ind1 == ind2):
             ind2 = np.random.randint(0, l)
-        while(ind1 == ind3 or ind2 == ind3):
+        while(ind1 == ind3 and ind2 == ind3):
             ind3 = np.random.randint(0, l)
         
         self.ui.tableWidget.setItem(0, 0, QtGui.QTableWidgetItem(pop_movies['movie_title'][ind1]))
@@ -57,12 +56,32 @@ class Entertime(QtGui.QMainWindow):
 
         while(ind1 == ind2):
             ind2 = np.random.randint(0, l)
-        while(ind1 == ind3 or ind2 == ind3):
+        while(ind1 == ind3 and ind2 == ind3):
             ind3 = np.random.randint(0, l)
 
         self.ui.tableWidget.setItem(0, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind1]))
         self.ui.tableWidget.setItem(1, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind2]))
         self.ui.tableWidget.setItem(2, 2, QtGui.QTableWidgetItem(pop_songs['song_title'][ind3]))
+	
+	#display popular books
+	pop_cols = ['book_id', 'book_title']
+	pop_books = pd.read_csv('popular_books.data', sep=';', names=pop_cols, encoding='latin-1')
+	l = len(pop_movies) 
+	#print "Length = ", l
+	ind1 = np.random.randint(0, l)
+	ind2 = np.random.randint(0, l)
+	ind3 = np.random.randint(0, l)
+
+
+	while(ind1 == ind2):
+	    ind2 = np.random.randint(0, l)
+	while(ind1 == ind3 and ind2 == ind3):
+	    ind3 = np.random.randint(0, l)
+
+	self.ui.tableWidget.setItem(0, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind1]))
+	self.ui.tableWidget.setItem(1, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind2]))
+	self.ui.tableWidget.setItem(2, 2, QtGui.QTableWidgetItem(pop_books['book_title'][ind3]))
+
 
         #print pop_movies['movie_title'][ind1]
 	    #print pop_movies['movie_title'][ind2]
@@ -84,11 +103,6 @@ class Entertime(QtGui.QMainWindow):
     def input_time(self):
         self.hr = self.ui.hrs_spinBox.value()
         self.min = self.ui.mins_spinBox_2.value()
-
-        d = {'hour':[self.hr],'minute':[self.min]}
-        df = pd.DataFrame(d)
-        df.to_csv('time.txt',sep='\t',index=False, header=False)
-
         if(self.hr == 0 and self.min < 15): #song(1 or 2)
             self.hide()
             os.system('python finalPage1_UI_run.py')  
