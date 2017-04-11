@@ -48,15 +48,28 @@ class FinalPage2(QtGui.QMainWindow):
 
         #recommend books 
         #TODO
+
+	cols = ['hour', 'minute']
+        time = pd.read_csv('time.txt', sep='\t', names=cols, encoding='latin-1')
+        minute = time['minute'][0]  
+	hour = time['hour'][0]      
+        print hour
+        maxCol = 0
+        if(hour<1):
+            maxCol = 1;
+        else:
+            maxCol = 2;
+
 	k=0
         for i in range(0,5):
             self.ui.tableWidget_2.setItem(i, 0, QtGui.QTableWidgetItem(reco_books['book_title'][k+1]))
             k = k + 1
             
 
-	for i in range(0,5):
-            self.ui.tableWidget_2.setItem(i, 1, QtGui.QTableWidgetItem(reco_books['book_title'][k+1]))
-            k = k + 1
+	if(maxCol==2):
+	    for i in range(0,5):
+                self.ui.tableWidget_2.setItem(i, 1, QtGui.QTableWidgetItem(reco_books['book_title'][k+1]))
+                k = k + 1
             
 
     def home(self):
